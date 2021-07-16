@@ -1,4 +1,4 @@
-package com.springtemplate;
+package com.springtemplate.models;
 
 import java.util.Arrays;
 import java.util.Collection;
