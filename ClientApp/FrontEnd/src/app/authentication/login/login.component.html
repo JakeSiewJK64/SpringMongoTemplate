@@ -1,17 +1,17 @@
-<div class="card mx-auto w-25 custom-card">
-    <div class="card-body">
-        <h5 class="card-title">Login</h5>
+<mat-card class="custom-card">
+    <mat-card-title>Login</mat-card-title>
+    <mat-card-content>
         <p class="card-text">Please enter credentials to proceed.</p>
         <div fxLayout="column" fxLayoutAlign="center center">
             <mat-form-field appearance="outline" class="w-100">
                 <mat-label>Username</mat-label>
-                <input matInput placeholder="Please enter Username">
+                <input matInput [(ngModel)]="username" placeholder="Please enter Username">
             </mat-form-field>
             <mat-form-field appearance="outline" class="w-100">
                 <mat-label>Password</mat-label>
-                <input matInput type="password" placeholder="Please enter Password">
+                <input matInput [(ngModel)]="password" type="password" placeholder="Please enter Password">
             </mat-form-field>
+            <button mat-flat-button color="primary" (click)="login()">Login</button>
         </div>
-        <a href="#" class="d-flex justify-content-center btn btn-success">Login</a>
-    </div>
-</div>
+    </mat-card-content>
+</mat-card>
