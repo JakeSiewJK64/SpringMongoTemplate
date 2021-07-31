@@ -2,14 +2,16 @@
     <div class="card-body">
         <h5 class="card-title">Login</h5>
         <p class="card-text">Please enter credentials to proceed.</p>
-        <mat-form-field>
-            <mat-label>Username</mat-label>
-            <input type="text" />
-        </mat-form-field>
-        <mat-form-field>
-            <mat-label>Password</mat-label>
-            <input type="text" />
-        </mat-form-field>
+        <div fxLayout="column" fxLayoutAlign="center center">
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Username</mat-label>
+                <input matInput placeholder="Please enter Username">
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Password</mat-label>
+                <input matInput type="password" placeholder="Please enter Password">
+            </mat-form-field>
+        </div>
         <a href="#" class="d-flex justify-content-center btn btn-success">Login</a>
     </div>
 </div>
