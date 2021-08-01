@@ -10,14 +10,17 @@ import { MaterialModule } from './material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeMenuComponent } from './home-menu/home-menu.component';
-import { JwtHelperService } from '@auth0/angular-jwt';
-import { Router } from '@angular/router';
+import { ApiAuthorizatonModule } from './authentication/api-authorizaton.module';
+import { AuthService } from './authentication/authorize.service';
+import { AuthorizeGuard } from './authentication/authorize.guard';
+import { LogoutComponent } from './authentication/logout/logout.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeMenuComponent,
+    LogoutComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,9 +30,11 @@ import { Router } from '@angular/router';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ApiAuthorizatonModule,
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

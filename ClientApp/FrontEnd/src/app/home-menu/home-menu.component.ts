@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { AuthService } from '../authentication/authorize.service';
 
 @Component({
   selector: 'app-home-menu',
@@ -8,13 +8,10 @@ import { Router } from '@angular/router';
 })
 export class HomeMenuComponent implements OnInit {
 
-  constructor(private router: Router) {
-    if (!localStorage.getItem("token")) {
-      this.router.navigate(['authentication/login']);
-    }
-  }
-
   ngOnInit(): void {
   }
 
+  logout() {
+    localStorage.removeItem("token");
+  }
 }

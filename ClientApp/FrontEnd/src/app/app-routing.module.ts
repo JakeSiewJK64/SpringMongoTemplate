@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthorizeGuard } from './authentication/authorize.guard';
 import { LoginComponent } from './authentication/login/login.component';
+import { LogoutComponent } from './authentication/logout/logout.component';
 import { HomeMenuComponent } from './home-menu/home-menu.component';
 
 
@@ -12,9 +13,15 @@ const routes: Routes = [
     pathMatch: "full"
   },
   {
+    path: "authentication/logout",
+    component: LogoutComponent,
+    pathMatch: "full"
+  },
+  {
     path: "home",
     component: HomeMenuComponent,
     pathMatch: "full",
+    canActivate: [AuthorizeGuard]
   },
 ];
 
