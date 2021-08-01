@@ -19,7 +19,8 @@ export class LoginComponent implements OnInit {
 
   login() {
     this.http.post<any>('http://localhost:8095/authenticate', { username: this.username, password: this.password }).subscribe(result => {
-      console.log(result.jwt);
+      localStorage.setItem("token", result.jwt);
+      console.log("JWT in local storage: " + localStorage.getItem("token"));
     }, error => {
       console.error(error);
       console.log(error.status);
