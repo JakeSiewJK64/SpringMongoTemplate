@@ -13,6 +13,7 @@ import { ApiAuthorizatonModule } from './authentication/api-authorizaton.module'
 import { LogoutComponent } from './authentication/logout/logout.component';
 import { AuthService } from './authentication/authorize.service';
 import { SharedModule } from './shared.module';
+import { JwtHelperService, JwtModule } from '@auth0/angular-jwt';
 
 @NgModule({
   declarations: [
@@ -31,9 +32,11 @@ import { SharedModule } from './shared.module';
     HttpClientModule,
     BrowserAnimationsModule,
     ApiAuthorizatonModule,
+    JwtModule
   ],
   providers: [
-    AuthService
+    AuthService,
+    JwtHelperService
   ],
   bootstrap: [AppComponent]
 })

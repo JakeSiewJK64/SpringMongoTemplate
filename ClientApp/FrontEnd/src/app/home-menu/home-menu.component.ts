@@ -8,13 +8,20 @@ import { AuthService } from '../authentication/authorize.service';
 })
 export class HomeMenuComponent implements OnInit {
 
+  username: string = '';
+
   constructor(private authService: AuthService) {
   }
 
   ngOnInit(): void {
+    this.getUserName();
   }
 
   logout() {
     this.authService.logout();
+  }
+
+  getUserName() {
+    this.username = this.authService.getUserName();
   }
 }
