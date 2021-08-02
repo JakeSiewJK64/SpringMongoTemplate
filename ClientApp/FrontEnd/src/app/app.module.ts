@@ -11,9 +11,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeMenuComponent } from './home-menu/home-menu.component';
 import { ApiAuthorizatonModule } from './authentication/api-authorizaton.module';
-import { AuthService } from './authentication/authorize.service';
-import { AuthorizeGuard } from './authentication/authorize.guard';
 import { LogoutComponent } from './authentication/logout/logout.component';
+import { AuthService } from './authentication/authorize.service';
 
 @NgModule({
   declarations: [
@@ -34,6 +33,7 @@ import { LogoutComponent } from './authentication/logout/logout.component';
     ApiAuthorizatonModule,
   ],
   providers: [
+    AuthService
   ],
   bootstrap: [AppComponent]
 })

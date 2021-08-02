@@ -13,21 +13,13 @@ export class LoginComponent implements OnInit {
   public username: string;
   public password: string;
 
-  constructor(private router: Router, private http: HttpClient) {
+  constructor(private authservice: AuthService) {
   }
 
   ngOnInit() {
   }
 
   login() {
-    // this.authservice.login(this.username, this.password);
-    this.http.post<any>('http://localhost:8095/authenticate', { username: this.username, password: this.password }).subscribe(result => {
-      localStorage.setItem("token", result.jwt);
-      this.router.navigate(['home']);
-      console.log("JWT in local storage: " + localStorage.getItem("token"));
-    }, error => {
-      console.error(error);
-      console.log(error.status);
-    });
+    this.authservice.login(this.username, this.password);
   }
 }

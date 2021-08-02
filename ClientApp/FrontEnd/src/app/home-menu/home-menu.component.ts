@@ -8,10 +8,13 @@ import { AuthService } from '../authentication/authorize.service';
 })
 export class HomeMenuComponent implements OnInit {
 
+  constructor(private authService: AuthService) {
+  }
+
   ngOnInit(): void {
   }
 
   logout() {
-    localStorage.removeItem("token");
+    this.authService.logout();
   }
 }
