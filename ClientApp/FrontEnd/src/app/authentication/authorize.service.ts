@@ -1,12 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { JwtHelperService } from '@auth0/angular-jwt';
+import { TdDialogService } from '@covalent/core/dialogs';
 @Injectable({
     providedIn: 'root'
 })
 export class AuthService {
     constructor(
+        private dialogService: TdDialogService,
         private router: Router,
         private http: HttpClient) { }
 
@@ -20,8 +21,10 @@ export class AuthService {
             localStorage.setItem("token", result.jwt);
             this.router.navigate(["home"]);
         }, error => {
-            console.error(error);
-            console.log(error.status);
+            this.dialogService.openAlert({
+                title: "Oops!",
+                message: error.message
+            })
         });
     }
 }

@@ -6,13 +6,13 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './authentication/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from './material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeMenuComponent } from './home-menu/home-menu.component';
 import { ApiAuthorizatonModule } from './authentication/api-authorizaton.module';
 import { LogoutComponent } from './authentication/logout/logout.component';
 import { AuthService } from './authentication/authorize.service';
+import { SharedModule } from './shared.module';
 
 @NgModule({
   declarations: [
@@ -24,7 +24,7 @@ import { AuthService } from './authentication/authorize.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MaterialModule,
+    SharedModule,
     FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule,
