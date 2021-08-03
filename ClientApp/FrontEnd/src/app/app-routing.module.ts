@@ -22,6 +22,11 @@ const routes: Routes = [
     component: HomeMenuComponent,
     pathMatch: "full",
   },
+  {
+    path: "/",
+    redirectTo: "home",
+    pathMatch: "full"
+  },
 ];
 
 @NgModule({

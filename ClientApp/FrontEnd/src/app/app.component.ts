@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { User, AuthService } from './authentication/authorize.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'ClientApp';
+  user: User;
+
+  constructor(private authService: AuthService,
+    private router: Router) {
+  }
+
+  ngOnInit(): void {
+    this.user = this.authService.getUser();
+  }
+
+  logout() {
+    this.authService.logout();
+  }
+
+  login() {
+    this.router.navigate(["authentication/login"]);
+  }
 }

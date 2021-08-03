@@ -1,11 +1,3 @@
-<mat-toolbar>
-    <img src="https://gamepress.gg/arknights/sites/arknights/files/2021-04/logo_penguin.png" alt="Penguin Logistics" />
-    <div class="vl"></div>
-    <span>Penguin Cafe</span>
-    <span class="example-spacer"></span>
-    <button *ngIf="user" mat-flat-button (click)="logout()">Logout</button>
-    <button *ngIf="!user" mat-flat-button (click)="login()">Login</button>
-</mat-toolbar>
 <div class="m-2" *ngIf="user">
     <h2>Welcome Back, {{ user.username }}</h2>
     <h3>Your Role is: {{ user.role }}</h3>
