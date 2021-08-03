@@ -20,7 +20,13 @@ export class AuthService {
     public getUserName(): string {
         const token = localStorage.getItem("token");
         const tokenPayload: any = decode(token);
-        return tokenPayload.sub;
+        return tokenPayload.username;
+    }
+    
+    public getUserRole(): string {
+        const token = localStorage.getItem("token");
+        const tokenPayload: any = decode(token);
+        return tokenPayload.role;
     }
 
     public login(username: string, password: string) {
