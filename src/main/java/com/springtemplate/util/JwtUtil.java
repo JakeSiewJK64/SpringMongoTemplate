@@ -1,6 +1,10 @@
 package com.springtemplate.util;
 
 import org.springframework.stereotype.Service;
+
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -20,11 +24,17 @@ public class JwtUtil {
     private String SECRET_KEY = "secret";
 
     public String extractUsername(String token) {
-        return extractClaim(token, Claims::getSubject);
+        return extractAllClaims(token).get("username").toString();
     }
 
     public Date extractExpiration(String token) {
-        return extractClaim(token, Claims::getExpiration);
+        DateFormat format = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy");
+        try {
+            return format.parse(extractAllClaims(token).get("expiration_date").toString());
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     public <T> T extractClaim(String token, Function<Claims, T> claimsResolver) {

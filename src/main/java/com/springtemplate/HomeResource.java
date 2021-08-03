@@ -47,12 +47,19 @@ public class HomeResource {
         /**
          * ? QUERIES USER DETAILS FROM MYUSERDETAILSSERVICE
          */
-        final UserModel userDetails = myUserDetailsService.loadUserModelByUsername(authenticationRequest.getUsername());
+        final UserModel userModel = myUserDetailsService.loadUserModelByUsername(authenticationRequest.getUsername());
+
+        //#region
+        // !INCORRECT PASSWORD HANDING
+        if (!userModel.getPassword().equals(authenticationRequest.getPassword())) {
+            throw new Exception("Invalid Password!");
+        }
+        //#endregion
 
         /**
          * ? GENERATES THE JWT TOKEN BASED ON THE USERDETAILS
          */
-        final String jwt = jwtUtil.generateToken(userDetails);
+        final String jwt = jwtUtil.generateToken(userModel);
 
         return ResponseEntity.ok(new AuthenticationResponse(jwt));
     }
