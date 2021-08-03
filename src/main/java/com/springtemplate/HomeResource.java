@@ -2,6 +2,7 @@ package com.springtemplate;
 
 import com.springtemplate.models.AuthenticationRequest;
 import com.springtemplate.models.AuthenticationResponse;
+import com.springtemplate.models.UserModel;
 import com.springtemplate.util.JwtUtil;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +34,7 @@ public class HomeResource {
         return "hello world";
     }
 
-    @CrossOrigin(origins="http://localhost:4200")
+    @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(value = "/authenticate", method = RequestMethod.POST)
     public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest)
             throws Exception {
@@ -47,7 +48,7 @@ public class HomeResource {
         /**
          * ? QUERIES USER DETAILS FROM MYUSERDETAILSSERVICE
          */
-        final UserDetails userDetails = myUserDetailsService.loadUserByUsername(authenticationRequest.getUsername());
+        final UserModel userDetails = myUserDetailsService.loadUserModelByUsername(authenticationRequest.getUsername());
 
         /**
          * ? GENERATES THE JWT TOKEN BASED ON THE USERDETAILS

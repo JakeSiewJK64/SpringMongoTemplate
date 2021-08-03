@@ -6,6 +6,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
 
+import com.springtemplate.models.UserModel;
+
+import org.json.JSONObject;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import io.jsonwebtoken.Claims;
@@ -37,15 +40,20 @@ public class JwtUtil {
         return extractExpiration(token).before(new Date());
     }
 
-    public String generateToken(UserDetails userDetails) {
+    public String generateToken(UserModel userModel) {
         Map<String, Object> claims = new HashMap<>();
-        return createToken(claims, userDetails.getUsername());
+        return createToken(claims, userModel);
     }
 
-    public String createToken(Map<String, Object> claims, String subject) {
-        return Jwts.builder().setClaims(claims).setSubject(subject).setIssuedAt(new Date(System.currentTimeMillis()))
-                .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 10))
-                .signWith(SignatureAlgorithm.HS256, SECRET_KEY).compact();
+    public String createToken(Map<String, Object> claims, UserModel user) {
+
+        JSONObject json = new JSONObject();
+        json.put("username", user.getUsername());
+        json.put("role", user.getRole());
+        json.put("issued_at", new Date(System.currentTimeMillis()));
+        json.put("expiration_date", new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 10));
+
+        return Jwts.builder().setPayload(json.toString()).signWith(SignatureAlgorithm.HS256, SECRET_KEY).compact();
     }
 
     public Boolean validateToken(String token, UserDetails userDetails) {

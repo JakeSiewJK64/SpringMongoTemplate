@@ -29,4 +29,12 @@ public class MyUserDetailsService implements UserDetailsService {
         }
         return new User(user.getUsername(), user.getPassword(), new ArrayList<>());
     }
+
+    public UserModel loadUserModelByUsername(String username) throws UsernameNotFoundException {
+        UserModel user = this.userDao.findUserByUserName(username);
+        if (user == null) {
+            throw new UsernameNotFoundException("User " + username + " does not exist");
+        }
+        return user;
+    }
 }
