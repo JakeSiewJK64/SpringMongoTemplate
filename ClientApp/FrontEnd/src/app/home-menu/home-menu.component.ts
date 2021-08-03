@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../authentication/authorize.service';
+import { Router } from '@angular/router';
+import { AuthService, User } from '../authentication/authorize.service';
 
 @Component({
   selector: 'app-home-menu',
@@ -8,22 +9,21 @@ import { AuthService } from '../authentication/authorize.service';
 })
 export class HomeMenuComponent implements OnInit {
 
-  username: string = '';
-  role: string = '';
+  user: User;
 
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService,
+    private router: Router) {
   }
 
   ngOnInit(): void {
-    this.getUser();
+    this.user = this.authService.getUser();
   }
 
   logout() {
     this.authService.logout();
   }
 
-  getUser() {
-    this.username = this.authService.getUserName();
-    this.role = this.authService.getUserRole();
+  login() {
+    this.router.navigate(["authenticate/login"]);
   }
 }
