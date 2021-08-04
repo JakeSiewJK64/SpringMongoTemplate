@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { AuthService, User } from '../authentication/authorize.service';
 
 @Component({
@@ -11,19 +10,14 @@ export class HomeMenuComponent implements OnInit {
 
   user: User;
 
-  constructor(private authService: AuthService,
-    private router: Router) {
+  constructor(private authService: AuthService) {
   }
 
   ngOnInit(): void {
+    this.load();
+  }
+
+  load() {
     this.user = this.authService.getUser();
-  }
-
-  logout() {
-    this.authService.logout();
-  }
-
-  login() {
-    this.router.navigate(["authenticate/login"]);
   }
 }
