@@ -36,7 +36,7 @@ export class AuthService {
     }
 
     public login(username: string, password: string) {
-        this.http.post<any>('http://localhost:8095/authenticate', { username: username, password: password }).subscribe(result => {
+        this.http.post<any>('http://localhost:8095/api/authenticate', { username: username, password: password }).subscribe(result => {
             localStorage.setItem("token", result.jwt);
             this.router.navigate(["home"]);
         }, error => {
