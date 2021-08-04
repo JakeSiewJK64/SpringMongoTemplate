@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Books } from '../api-resource/api-resource';
+import { Book, BooksClient } from '../api-resource/api-resource';
 import { AuthService, User } from '../authentication/authorize.service';
 
 @Component({
@@ -10,12 +10,11 @@ import { AuthService, User } from '../authentication/authorize.service';
 export class HomeMenuComponent implements OnInit {
 
   displayedColumns: string[] = ['name', 'price', 'category', 'author'];
-  dataSource: Books[] = [
-    { name: "Clean Code", author: "James", category: 1, price: 17.99 }
-  ];
+  dataSource: Book[] = [];
   user: User;
 
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService,
+    private bookService: BooksClient) {
   }
 
   ngOnInit(): void {
@@ -24,5 +23,10 @@ export class HomeMenuComponent implements OnInit {
 
   load() {
     this.user = this.authService.getUser();
+    this.bookService.getAllBooks().subscribe(x => {
+      this.dataSource = x;
+      console.log(x);
+      
+    });
   }
 }

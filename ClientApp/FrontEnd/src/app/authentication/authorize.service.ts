@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { TdDialogService } from '@covalent/core/dialogs';
 import decode from 'jwt-decode';
-import { IUser } from '../api-resource/api-resource';
+import { BASE_URL, IUser } from '../api-resource/api-resource';
 export class User implements IUser {
     username: string;
     role: string;
@@ -36,7 +36,7 @@ export class AuthService {
     }
 
     public login(username: string, password: string) {
-        this.http.post<any>('http://localhost:8095/api/authenticate', { username: username, password: password }).subscribe(result => {
+        this.http.post<any>(BASE_URL + '/api/authenticate', { username: username, password: password }).subscribe(result => {
             localStorage.setItem("token", result.jwt);
             this.router.navigate(["home"]);
         }, error => {
