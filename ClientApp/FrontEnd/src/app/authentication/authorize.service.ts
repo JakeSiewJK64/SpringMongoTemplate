@@ -3,8 +3,8 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { TdDialogService } from '@covalent/core/dialogs';
 import decode from 'jwt-decode';
-
-export class User {
+import { IUser } from '../api-resource/api-resource';
+export class User implements IUser {
     username: string;
     role: string;
     constructor(username: string, role: string) {
@@ -28,7 +28,7 @@ export class AuthService {
 
     public getUser(): User {
         const token = localStorage.getItem("token");
-        if(!token) {
+        if (!token) {
             return null;
         }
         const tokenPayload: any = decode(token);
