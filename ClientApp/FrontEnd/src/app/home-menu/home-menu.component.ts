@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Book, BooksClient } from '../api-resource/api-resource';
 import { AuthService, User } from '../authentication/authorize.service';
+import { BookDetailsDialogComponent } from './_dialogs/book-details-dialog/book-details-dialog.component';
 
 @Component({
   selector: 'app-home-menu',
@@ -14,11 +16,26 @@ export class HomeMenuComponent implements OnInit {
   user: User;
 
   constructor(private authService: AuthService,
+    private matDialog: MatDialog,
     private bookService: BooksClient) {
   }
 
   ngOnInit(): void {
     this.load();
+  }
+
+  addBook() {
+    const dialogRef = this.matDialog.open(BookDetailsDialogComponent, {
+      width: "800px",
+      data: {
+        book: new Book()
+      }
+    });
+    dialogRef.afterClosed().subscribe(x => {
+      this.bookService.upsertBook(x).subscribe(x => {
+        console.log(x);
+      })
+    })
   }
 
   load() {

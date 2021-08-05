@@ -14,6 +14,7 @@ import { LogoutComponent } from './authentication/logout/logout.component';
 import { AuthService } from './authentication/authorize.service';
 import { SharedModule } from './shared.module';
 import { JwtHelperService, JwtModule } from '@auth0/angular-jwt';
+import { BookDetailsDialogComponent } from './home-menu/_dialogs/book-details-dialog/book-details-dialog.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { JwtHelperService, JwtModule } from '@auth0/angular-jwt';
     LoginComponent,
     HomeMenuComponent,
     LogoutComponent,
+    BookDetailsDialogComponent,
   ],
   imports: [
     BrowserModule,

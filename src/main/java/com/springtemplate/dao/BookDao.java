@@ -21,4 +21,8 @@ public class BookDao {
     public List<Book> getAllBooksQuery() {
         return mongoTemplate.findAll(Book.class);
     }
+
+    public String upsertBookCommand(Book book) {
+        return mongoTemplate.save(book, "Books").getId();
+    }
 }

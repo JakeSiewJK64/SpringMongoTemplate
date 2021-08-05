@@ -2,7 +2,8 @@
     <h2>Welcome Back, {{ user.username }}</h2>
     <h3>Your Role is: {{ user.role }}</h3>
 </div>
-<div class="w-100">
+<div class="w-100" fxLayout="column">
+    <button mat-flat-button class="ml-auto d-block m-2" color="primary" (click)="addBook()">Add Book</button>
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
         <!-- Position Column -->
         <ng-container matColumnDef="name">

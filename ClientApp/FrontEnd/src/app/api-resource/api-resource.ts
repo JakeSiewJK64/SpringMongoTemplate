@@ -3,7 +3,7 @@ import { Inject, Injectable, Optional } from "@angular/core";
 
 export const BASE_URL: string = "http://localhost:8095";
 
-export interface Book {
+export interface IBook {
     name: string;
     price: number;
     category: string;
@@ -17,6 +17,16 @@ export interface IUser {
 
 export interface IBooksClient {
     getAllBooks();
+    upsertBook(book: Book);
+}
+
+export class Book implements IBook {
+    name: string;
+    price: number;
+    category: string;
+    author: string;
+    constructor() {
+    }
 }
 
 @Injectable({
@@ -32,8 +42,12 @@ export class BooksClient implements IBooksClient {
         this.baseUrl = baseUrl !== undefined && baseUrl !== null ? baseUrl : "";
     }
 
+    upsertBook(book: Book) {
+        let _url = this.baseUrl + "/api/upsertBook";
+        return this.http.post<Book[]>(BASE_URL + _url, { author: book.author, name: book.name, price: book.price, category: book.category });
+    }
+
     getAllBooks() {
-        let bookRes: Book[] = [];
         let _url = this.baseUrl + "/api/getAllBooks";
         return this.http.get<Book[]>(BASE_URL + _url);
     }

@@ -38,7 +38,7 @@ export class AuthService {
     public login(username: string, password: string) {
         this.http.post<any>(BASE_URL + '/api/authenticate', { username: username, password: password }).subscribe(result => {
             localStorage.setItem("token", result.jwt);
-            this.router.navigate(["home"]);
+            this.router.navigate([""]);
         }, error => {
             this.dialogService.openAlert({
                 title: "Oops!",
