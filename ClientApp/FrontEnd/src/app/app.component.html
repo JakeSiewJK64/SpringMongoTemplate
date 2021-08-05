@@ -1,0 +1,16 @@
+<mat-toolbar>
+    <div fxLayout="row" class="w-100">
+        <div [routerLink]="['/']" class="home-menu" fxLayout="row">
+            <img src="https://gamepress.gg/arknights/sites/arknights/files/2021-04/logo_penguin.png"
+                alt="Penguin Logistics" />
+            <div class="vl"></div>
+            <span class="pt-3">Penguin Cafe</span>
+            <span class="example-spacer"></span>
+        </div>
+        <div class="ml-auto pt-3">
+            <button *ngIf="!user" mat-flat-button (click)="login()">Login</button>
+            <button *ngIf="user" mat-flat-button (click)="logout()">Logout</button>
+        </div>
+    </div>
+</mat-toolbar>
+<router-outlet></router-outlet>

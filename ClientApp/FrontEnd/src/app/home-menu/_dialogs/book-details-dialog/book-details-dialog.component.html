@@ -1,0 +1,26 @@
+<h2 mat-dialog-title>Add New Book</h2>
+<div mat-dialog-content fxLayout="column">
+    <div fxLayout="row" fxLayoutGap="5px">
+        <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Book Title</mat-label>
+            <input matInput [(ngModel)]="data.book.name" type="text" placeholder="Book Title" />
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Author</mat-label>
+            <input matInput [(ngModel)]="data.book.author" type="text" placeholder="Author" />
+        </mat-form-field>
+    </div>
+    <div fxLayout="row" fxLayoutGap="5px">
+        <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Price</mat-label>
+            <input matInput [(ngModel)]="data.book.price" type="number" placeholder="Price" />
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Category</mat-label>
+            <input matInput [(ngModel)]="data.book.category" type="text" placeholder="Category" />
+        </mat-form-field>
+    </div>
+</div>
+<div mat-dialog-actions fxLayoutAlign="end end">
+    <button mat-flat-button color="primary" [mat-dialog-close]="data.book">Add Book</button>
+</div>
