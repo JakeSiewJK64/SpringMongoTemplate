@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { User, AuthService } from './authentication/authorize.service';
+import { User } from './api-resource/api-resource';
+import { AuthService } from './authentication/authorize.service';
 import { EventEmitterService } from './shared/utils/EventEmitterService';
 
 @Component({
@@ -18,6 +19,8 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.eventEmitterService.eventEmitter.subscribe(() => this.load());
+    this.load();
+    console.log(this.user);
   }
 
   load() {

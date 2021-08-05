@@ -12,7 +12,7 @@ export interface IBook {
 
 export interface IUser {
     username: string;
-    role: number;
+    role: UserRole;
 }
 
 export interface IBooksClient {
@@ -23,6 +23,15 @@ export interface IBooksClient {
 export enum UserRole {
     Administrator = 0,
     User = 1
+}
+
+export class User implements IUser {
+    username: string;
+    role: UserRole;
+    constructor(username: string, role: UserRole) {
+        this.username = username;
+        this.role = role;
+    }
 }
 
 export class Book implements IBook {

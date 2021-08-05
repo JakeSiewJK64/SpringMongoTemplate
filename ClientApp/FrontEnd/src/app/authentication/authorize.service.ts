@@ -3,16 +3,8 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { TdDialogService } from '@covalent/core/dialogs';
 import decode from 'jwt-decode';
-import { BASE_URL, IUser } from '../api-resource/api-resource';
+import { BASE_URL, User } from '../api-resource/api-resource';
 import { EventEmitterService } from '../shared/utils/EventEmitterService';
-export class User implements IUser {
-    username: string;
-    role: number;
-    constructor(username: string, role: number) {
-        this.username = username;
-        this.role = role;
-    }
-}
 @Injectable({
     providedIn: 'root'
 })
