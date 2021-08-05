@@ -36,10 +36,9 @@ export class HomeMenuComponent implements OnInit {
       }
     });
     dialogRef.afterClosed().subscribe(x => {
-      this.bookService.upsertBook(x).subscribe(x => {
-        console.log(x);
-      })
-    })
+      this.bookService.upsertBook(x).subscribe(() => { });
+      this.load();
+    });
   }
 
   load() {

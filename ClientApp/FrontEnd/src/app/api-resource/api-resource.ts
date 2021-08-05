@@ -43,6 +43,7 @@ export class Book implements IBook {
     }
 }
 
+//#region Book
 @Injectable({
     providedIn: "root"
 })
@@ -66,3 +67,4 @@ export class BooksClient implements IBooksClient {
         return this.http.get<Book[]>(BASE_URL + _url);
     }
 }
+//#endregion Book
