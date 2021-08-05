@@ -20,7 +20,6 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.eventEmitterService.eventEmitter.subscribe(() => this.load());
     this.load();
-    console.log(this.user);
   }
 
   load() {
