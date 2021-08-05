@@ -12,9 +12,9 @@ import { HomeMenuComponent } from './home-menu/home-menu.component';
 import { ApiAuthorizatonModule } from './authentication/api-authorizaton.module';
 import { LogoutComponent } from './authentication/logout/logout.component';
 import { AuthService } from './authentication/authorize.service';
-import { SharedModule } from './shared.module';
 import { JwtHelperService, JwtModule } from '@auth0/angular-jwt';
 import { BookDetailsDialogComponent } from './home-menu/_dialogs/book-details-dialog/book-details-dialog.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [

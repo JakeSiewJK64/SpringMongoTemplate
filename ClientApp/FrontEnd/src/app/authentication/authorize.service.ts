@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { TdDialogService } from '@covalent/core/dialogs';
 import decode from 'jwt-decode';
 import { BASE_URL, IUser } from '../api-resource/api-resource';
+import { EventEmitterService } from '../shared/utils/EventEmitterService';
 export class User implements IUser {
     username: string;
     role: string;
@@ -19,12 +20,8 @@ export class AuthService {
     constructor(
         private dialogService: TdDialogService,
         private router: Router,
+        private eventEmitterService: EventEmitterService,
         private http: HttpClient) { }
-
-    public logout() {
-        localStorage.removeItem("token");
-        this.router.navigate(["authentication/login"]);
-    }
 
     public getUser(): User {
         const token = localStorage.getItem("token");
@@ -35,9 +32,16 @@ export class AuthService {
         return new User(tokenPayload.username, tokenPayload.role);
     }
 
+    public logout() {
+        localStorage.removeItem("token");
+        this.eventEmitterService.updateMatHeader();
+        this.router.navigate(["authentication/login"]);
+    }
+
     public login(username: string, password: string) {
         this.http.post<any>(BASE_URL + '/api/authenticate', { username: username, password: password }).subscribe(result => {
             localStorage.setItem("token", result.jwt);
+            this.eventEmitterService.updateMatHeader();
             this.router.navigate([""]);
         }, error => {
             this.dialogService.openAlert({

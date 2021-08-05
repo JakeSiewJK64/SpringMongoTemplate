@@ -14,10 +14,13 @@ export class HomeMenuComponent implements OnInit {
   displayedColumns: string[] = ['name', 'price', 'category', 'author'];
   dataSource: Book[] = [];
   user: User;
+  isReadOnly: boolean = true;
 
   constructor(private authService: AuthService,
     private matDialog: MatDialog,
     private bookService: BooksClient) {
+    this.user = this.authService.getUser();
+    this.isReadOnly = this.user ? this.user.role != "Administrator" : true;
   }
 
   ngOnInit(): void {
@@ -39,7 +42,6 @@ export class HomeMenuComponent implements OnInit {
   }
 
   load() {
-    this.user = this.authService.getUser();
     this.bookService.getAllBooks().subscribe(x => {
       this.dataSource = x;
     });
