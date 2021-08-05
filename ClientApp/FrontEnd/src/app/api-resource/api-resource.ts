@@ -12,12 +12,17 @@ export interface IBook {
 
 export interface IUser {
     username: string;
-    role: string;
+    role: number;
 }
 
 export interface IBooksClient {
     getAllBooks();
     upsertBook(book: Book);
+}
+
+export enum UserRole {
+    Administrator = 0,
+    User = 1
 }
 
 export class Book implements IBook {

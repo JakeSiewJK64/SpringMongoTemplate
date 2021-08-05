@@ -7,8 +7,8 @@ import { BASE_URL, IUser } from '../api-resource/api-resource';
 import { EventEmitterService } from '../shared/utils/EventEmitterService';
 export class User implements IUser {
     username: string;
-    role: string;
-    constructor(username: string, role: string) {
+    role: number;
+    constructor(username: string, role: number) {
         this.username = username;
         this.role = role;
     }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { Book, BooksClient } from '../api-resource/api-resource';
+import { Book, BooksClient, UserRole } from '../api-resource/api-resource';
 import { AuthService, User } from '../authentication/authorize.service';
 import { BookDetailsDialogComponent } from './_dialogs/book-details-dialog/book-details-dialog.component';
 
@@ -20,7 +20,7 @@ export class HomeMenuComponent implements OnInit {
     private matDialog: MatDialog,
     private bookService: BooksClient) {
     this.user = this.authService.getUser();
-    this.isReadOnly = this.user ? this.user.role != "Administrator" : true;
+    this.isReadOnly = this.user ? this.user.role != UserRole.Administrator : true;
   }
 
   ngOnInit(): void {
