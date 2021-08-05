@@ -30,16 +30,15 @@ public class UserModel {
     private String phonenumber;
 
     @Field("Role")
-    private String role;
+    private Integer role;
 
-    public UserModel(String id, String username, String password, String phonenumber, String role) {
+    public UserModel(String id, String username, String password, String phonenumber, Integer role) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.phonenumber = phonenumber;
         this.role = role;
     }
-
 
     public String getId() {
         return this.id;
@@ -73,12 +72,11 @@ public class UserModel {
         this.phonenumber = phonenumber;
     }
 
-    public String getRole() {
+    public Integer getRole() {
         return this.role;
     }
 
-    public void setRole(String role) {
+    public void setRole(Integer role) {
         this.role = role;
     }
-    
 }
