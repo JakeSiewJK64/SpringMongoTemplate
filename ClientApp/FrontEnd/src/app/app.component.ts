@@ -8,7 +8,7 @@ import { User, AuthService } from './authentication/authorize.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  user: User;
+  user: User = null;
 
   constructor(private authService: AuthService,
     private router: Router) {

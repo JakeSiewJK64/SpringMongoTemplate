@@ -25,8 +25,6 @@ export class HomeMenuComponent implements OnInit {
     this.user = this.authService.getUser();
     this.bookService.getAllBooks().subscribe(x => {
       this.dataSource = x;
-      console.log(x);
-      
     });
   }
 }
