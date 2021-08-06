@@ -1,5 +1,6 @@
-package com.springtemplate;
+package com.springtemplate.controllers;
 
+import com.springtemplate.MyUserDetailsService;
 import com.springtemplate.models.AuthenticationRequest;
 import com.springtemplate.models.AuthenticationResponse;
 import com.springtemplate.models.UserModel;

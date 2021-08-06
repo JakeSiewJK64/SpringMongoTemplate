@@ -1,4 +1,4 @@
-package com.springtemplate;
+package com.springtemplate.controllers;
 
 import java.util.List;
 
