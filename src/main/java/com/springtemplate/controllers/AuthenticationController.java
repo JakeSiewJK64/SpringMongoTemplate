@@ -1,5 +1,8 @@
 package com.springtemplate.controllers;
 
+import java.nio.charset.StandardCharsets;
+
+import com.google.common.hash.Hashing;
 import com.springtemplate.MyUserDetailsService;
 import com.springtemplate.models.AuthenticationRequest;
 import com.springtemplate.models.AuthenticationResponse;
@@ -51,12 +54,13 @@ public class AuthenticationController {
          */
         final UserModel userModel = myUserDetailsService.loadUserModelByUsername(authenticationRequest.getUsername());
 
-        //#region
+        // #region
         // !INCORRECT PASSWORD HANDING
-        if (!userModel.getPassword().equals(authenticationRequest.getPassword())) {
+        if (!Hashing.sha256().hashString(userModel.getPassword(), StandardCharsets.UTF_8).toString()
+                .equals(authenticationRequest.getPassword())) {
             throw new Exception("Invalid Password!");
         }
-        //#endregion
+        // #endregion
 
         /**
          * ? GENERATES THE JWT TOKEN BASED ON THE USERDETAILS

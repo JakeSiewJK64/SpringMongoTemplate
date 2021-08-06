@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../authorize.service';
-
+import { SHA256, enc } from 'crypto-js';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -19,6 +19,6 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.authservice.login(this.username, this.password);
+    this.authservice.login(this.username, SHA256(this.password).toString(enc.Hex));
   }
 }
