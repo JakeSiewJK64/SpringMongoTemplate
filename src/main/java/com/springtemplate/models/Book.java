@@ -14,7 +14,7 @@ import lombok.ToString;
 @Getter
 @AllArgsConstructor
 @Document(collection = "Books")
-public class Book {
+public class Book extends AuditingMeta {
     @Id
     private String id;
 
@@ -29,7 +29,6 @@ public class Book {
 
     @Field("Author")
     private String author;
-
 
     public String getId() {
         return this.id;
