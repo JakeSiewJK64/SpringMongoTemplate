@@ -38,6 +38,14 @@
 https://youtu.be/uq4GjRF_860
 
 ## IMPORTANT NOTE:
+- Frontend: Make sure you update your Angular CLI to Angular 12 using:
+```sh
+ng update
+```
+- Update Node packages using:
+```sh
+npm i
+```
 - Frontend and Backend are run separately. 
 - To run frontend, navigate to projectFolder/ClientApp/FrontEnd, then use command like this:
 ```sh
@@ -53,3 +61,11 @@ ng serve --aot --hmr
 4. Filters: Receives authentication parameters from POST request and validate against database.
 5. Controllers: Is needed to receive API URL calls and execute whatever functions needed to get the job done, then returns needed response.
 
+## Understanding the Structure (FrontEnd):
+1. Usually we define the API functions in api-resources.ts. This includes both normal and authentication APIs.
+2. All API related models, functions, controllers, enums and interfaces all go into the api-resource.ts file.
+3. 
+
+## Some common rules and best practice:
+1. Please make sure in Java naming conventions functions and variables have camel casing naming conventions.
+2. Classes, Interfaces and Abstract Interfaces must start with Capital Letter.
