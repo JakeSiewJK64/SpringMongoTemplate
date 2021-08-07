@@ -69,3 +69,7 @@ ng serve --aot --hmr
 ## Some common rules and best practice:
 1. Please make sure in Java naming conventions functions and variables have camel casing naming conventions.
 2. Classes, Interfaces and Abstract Interfaces must start with Capital Letter.
+
+## Developer notes:
+1. Any issues or improvements are welcome to address in the issues section.
+2. PRs are welcomed :)
