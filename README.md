@@ -37,5 +37,11 @@
 ## Video Help:
 https://youtu.be/uq4GjRF_860
 
-
+## IMPORTANT NOTE:
+- Frontend and Backend are run separately. 
+- To run frontend, navigate to projectFolder/ClientApp/FrontEnd, then use command like this:
+```sh
+ng serve --aot --hmr
+```
+- To run backend, use [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug), open any Java File > Go to Debug Tab (left of VS Code) > Run 
 
