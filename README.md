@@ -43,5 +43,6 @@ https://youtu.be/uq4GjRF_860
 ```sh
 ng serve --aot --hmr
 ```
+  this means ng serve ahead of time, hot module reload
 - To run backend, use [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug), open any Java File > Go to Debug Tab (left of VS Code) > Run 
 
