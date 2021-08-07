@@ -26,15 +26,33 @@
 - JRE 30.1.1
 
 <div style="display: flex;flex-flow: row-reverse wrap;">
+<a href="https://marketplace.visualstudio.com/items?itemName=sohibe.java-generate-setters-getters">
 <img src="https://redhat.gallerycdn.vsassets.io/extensions/redhat/java/0.80.0/1625064021900/Microsoft.VisualStudio.Services.Icons.Default" alt="drawing" width="50"/>
+</a>
+<a href="https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug">  
 <img src="https://vscjava.gallerycdn.vsassets.io/extensions/vscjava/vscode-java-debug/0.35.0/1627440419821/Microsoft.VisualStudio.Services.Icons.Default" alt="drawing" width="50"/>
+</a>
+<a href="https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack">
 <img src="https://vscjava.gallerycdn.vsassets.io/extensions/vscjava/vscode-java-pack/0.18.2/1627897072759/Microsoft.VisualStudio.Services.Icons.Default" alt="drawing" width="50"/>
+</a>
+<a href="https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test">
 <img src="https://vscjava.gallerycdn.vsassets.io/extensions/vscjava/vscode-maven/0.32.2/1628148242180/Microsoft.VisualStudio.Services.Icons.Default" alt="drawing" width="50"/>
+</a>
+<a href="https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven">
 <img src="https://vscjava.gallerycdn.vsassets.io/extensions/vscjava/vscode-java-test/0.31.0/1628215913870/Microsoft.VisualStudio.Services.Icons.Default" alt="drawing" width="50"/>
+</a>
+<a href="https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency">
 <img src="https://vscjava.gallerycdn.vsassets.io/extensions/vscjava/vscode-java-dependency/0.18.6/1627277271204/Microsoft.VisualStudio.Services.Icons.Default" alt="drawing" width="50"/>
+</a>
+<a href="https://marketplace.visualstudio.com/items?itemName=Pivotal.vscode-spring-boot">
 <img src="https://vscjava.gallerycdn.vsassets.io/extensions/vscjava/vscode-spring-boot-dashboard/0.2.0/1608001068887/Microsoft.VisualStudio.Services.Icons.Default" alt="drawing" width="50"/>
+</a>
+<a href="https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-boot-dashboard">
 <img src="https://pivotal.gallerycdn.vsassets.io/extensions/pivotal/vscode-spring-boot/1.26.0/1624118746619/Microsoft.VisualStudio.Services.Icons.Default" alt="drawing" width="50"/>
+</a>
+<a href="https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-initializr">
 <img src="https://vscjava.gallerycdn.vsassets.io/extensions/vscjava/vscode-spring-initializr/0.7.0/1615883353860/Microsoft.VisualStudio.Services.Icons.Default" alt="drawing" width="50"/>
+</a>
 </div>
 
 ## Video Help:
