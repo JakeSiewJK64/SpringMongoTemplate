@@ -46,3 +46,10 @@ ng serve --aot --hmr
   this means ng serve ahead of time, hot module reload
 - To run backend, use [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug), open any Java File > Go to Debug Tab (left of VS Code) > Run 
 
+## Understanding the Structure (Backend):
+1. DAO (Data Access Objects): Just a class that defines the CRUD functions against the database
+2. Models: Defines the object/model structure i.e. What attributes to include + getters and setters
+3. Util: contains JWT Util: creates and validates JWT tokens
+4. Filters: Receives authentication parameters from POST request and validate against database.
+5. Controllers: Is needed to receive API URL calls and execute whatever functions needed to get the job done, then returns needed response.
+
