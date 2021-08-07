@@ -21,6 +21,9 @@
   - Spring Boot Tools
   - Spring Boot Dashboard
   - Spring Initializer Java Support
+4. Tools:
+- Java SDK Ver. 16
+- JRE 30.1.1
 
 <div style="display: flex;flex-flow: row-reverse wrap;">
 <img src="https://redhat.gallerycdn.vsassets.io/extensions/redhat/java/0.80.0/1625064021900/Microsoft.VisualStudio.Services.Icons.Default" alt="drawing" width="50"/>
