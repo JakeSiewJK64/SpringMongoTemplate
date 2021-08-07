@@ -60,7 +60,7 @@ ng serve --aot --hmr
 3. Util: contains JWT Util: creates and validates JWT tokens
 4. Filters: Receives authentication parameters from POST request and validate against database.
 5. Controllers: Is needed to receive API URL calls and execute whatever functions needed to get the job done, then returns needed response.
-6. To access swagger (after u have run the backend), go to http://localhost:yourPort/swagger-ui-custom.html
+6. To access swagger (after u have run the backend), go to http://localhost:8095/swagger-ui-custom.html
 
 ## Understanding the Structure (FrontEnd):
 1. Usually we define the API functions in api-resources.ts. This includes both normal and authentication APIs.
